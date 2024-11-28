@@ -1,3 +1,8 @@
 28/11/2024
   Created Repositry
+  Created Templates directory
+  Created index.html, login.html, signup.html
+  Created app.py
+  Created directory_structure.txt
+  Created Test.db
   
