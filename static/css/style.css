@@ -1,0 +1,137 @@
+body {
+    font-family: Courier, serif;
+    margin: 0;
+}
+ul {
+    justify-content: right;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #777;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    background-color:linen;
+}
+
+li {
+    right: 10px;
+    position: relative;
+    display: block;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left:1px;
+    font-size: 25px;
+    width: 100px;
+}
+
+li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    display: block;
+    text-align: center;
+    background-color:linen;
+    font-size: 25px;
+    text-decoration: none;
+    color: #997;
+
+}
+
+li a:hover {
+    color: #770000;
+    animation-fill-mode: forwards;
+    animation-name: wiggle;
+    animation-duration: 0.2s;
+}
+
+li:first-child {
+    width: 150px;
+}
+
+.form {
+    margin: auto;
+    position: relative;
+    width: 800px;
+    
+}
+.form p:first-child {
+    margin-top: 175px;
+    font-size: 25px;
+    font-weight:500;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.form p {
+    margin-top: 30px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    font-weight: bold;
+}
+
+.form p input {
+    margin-top: -25px;
+    border-color: #ccc;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    height: 50px;
+    width: 500px;
+    font-size: 16px;
+    text-indent: 20px;
+}
+
+.form p:last-child input {
+    margin-top: 50px;
+    text-indent: 0px;
+    color: #777;
+    background-color: #fff;
+    border-color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+}
+
+.form p:last-child input:hover {
+    animation-name: wiggle;
+    animation-duration: 0.1s;
+    color: #770000;
+}
+
+@keyframes nav-hover-fade {
+    0% {
+        background-color:linen;
+
+    }
+    
+    100% {
+        background-color: #dad0c9;
+    }
+    
+}
+
+@keyframes wiggle {
+    15% {
+        transform: rotate(5deg);
+    }
+    30% {
+        transform: rotate(5deg);
+    }
+    45% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    90% {
+        transform: rotate(-5deg);
+    }
+}

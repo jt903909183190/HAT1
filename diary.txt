@@ -5,4 +5,15 @@
   Created app.py
   Created directory_structure.txt
   Created Test.db
+
+2/11/2025
+  Created style.css
+  Created menu.html, about.html
+  Added navbar to css
+  Added routing to index, login, signup and about pages
+  Styled Signup.html in style.css
+  Styled login.html in style.css
+  created catalogue table 
+  created reviews table
+  created routing to a temporary pages that handles posts to data.db (postplace.html, postreview.html)
   
