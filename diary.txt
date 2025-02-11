@@ -16,4 +16,6 @@
   created catalogue table 
   created reviews table
   created routing to a temporary pages that handles posts to data.db (postplace.html, postreview.html)
-  
+  implemented post feature in postplace.html
+  create a grid of categories to index.html
+  Styled index.html

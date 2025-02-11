@@ -103,6 +103,79 @@ li:first-child {
     color: #770000;
 }
 
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    justify-content: center;
+  }
+.container > div {
+    position: relative;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 50px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    height: 250px;
+    width: 700px;
+    font-size: 30px;
+    transition: box-shadow 0.3s ease;
+    
+  }
+
+  .container >div:first-child:hover, .container >div:nth-child(3):hover {
+    box-shadow: -15px 15px 5px rgba(216, 216, 216, 0.5);
+  }
+  .container >div:last-child:hover, .container >div:nth-child(2):hover {
+    box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
+  }
+.container > div:first-child, .container >div:nth-child(2) {
+    box-shadow: 5px 5px 5px rgba(216, 216, 216, 0.5);
+    margin-top: 0px;
+}
+.container > div:first-child, .container >div:nth-child(3) {
+    box-shadow: -5px 5px 5px rgba(216, 216, 216, 0.5);
+    margin-top: 0px;
+}
+.container > div:nth-child(2), .container >div:last-child {
+    box-shadow: 5px 5px 5px rgba(216, 216, 216, 0.5);
+    margin-top: 0px;
+}
+
+.container > div > a {
+    position: absolute;
+    text-decoration: none;
+    color: #777;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.container > div > a:hover {
+    animation-name: shift-arrows;
+    animation-duration: 0.4s;
+    color: #770000;
+}
+.container > div >a:hover:after {
+    position: relative;
+    content: "\ >>";
+    color:#770000;
+    animation-name: add-arrows;
+    animation-duration: 0.4s;
+    left: -8px;
+}
+
+@keyframes add-arrows {
+    0% {
+        left: -30px;
+        opacity: 0;
+    }
+    100% {
+        left: -8px;
+        opacity: 1;
+    }
+}
 @keyframes nav-hover-fade {
     0% {
         background-color:linen;
