@@ -52,9 +52,21 @@ def showpostscreen():
     return render_template('postplace.html')
 @app.route('/postplace.html', methods=['POST'])
 def postdata():
-    newdata = request.form['place_id'] + "," + request.form['name'] + "," + request.form['category'] + "," + request.form['coordx'] + "," + request.form['coordy'] + "," + request.form['about'] + "," + request.form['address'] + "," + request.form['open_hours'] + "," + request.form['website'] + "," + request.form['phone_number']
-    sqlite3.connect('database/data.db').cursor().execute("INSERT INTO catalogue(" + newdata + ")")
-
+    place_id = int(request.form['place_id'])
+    name = request.form['name']
+    category = request.form['category']
+    coordx = float(request.form['coordx'])
+    coordy = float(request.form['coordy'])
+    about = request.form['about']
+    address = request.form['address']
+    open_hours = request.form['open_hours']
+    website = request.form['website']
+    phone_number = request.form['phone_number']
+    con = sqlite3.connect('database/data.db')
+    cur = con.cursor()
+    cur.execute("INSERT INTO catalogue(place_id, name, category, coordx, coordy, about, address, open_hours, website, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (place_id, name, category, coordx, coordy, about, address, open_hours, website, phone_number))
+    con.commit()
+    return render_template("postplace.html")
 
 @app.route('/', methods=['GET'])
 def get():
