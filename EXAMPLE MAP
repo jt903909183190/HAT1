@@ -26,7 +26,7 @@ body { margin: 0; padding: 0; }
 
     const marker2 = new mapboxgl.Marker({ color: 'red'})
         .setLngLat([151.0868202, -33.7711686])
-	.setPopup(new mapboxgl.Popup().setHTML("<p>Restaurant</p>"))
+	    .setPopup(new mapboxgl.Popup().setHTML("<p>Test</p>"))
         .addTo(map);
 </script>
 

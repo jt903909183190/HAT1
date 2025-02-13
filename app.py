@@ -44,12 +44,27 @@ def showsignup():
 @app.route('/about.html', methods=['GET'])
 def showabout():
     return render_template('about.html')
-
-
-#temporary page to upload data to data.db
+@app.route('/place.html', methods=['GET'])
+def showplace():
+    return render_template('place.html')
 @app.route('/postplace.html', methods=['GET'])
 def showpostscreen():
     return render_template('postplace.html')
+@app.route('/category.html', methods=['GET'])
+def showcategory():
+    return render_template('category.html')
+
+#handle post requests
+@app.route('/place.html', methods=['POST'])
+def postplace():
+    cat = request.form['button']
+    query = f"SELECT * FROM catalogue WHERE place_id={cat}"
+    print(query)
+    print(sqlite3.connect('database/data.db').cursor().execute(query).fetchall())
+    return render_template('place.html', category=request.form['button'], catalogue=sqlite3.connect('database/data.db').cursor().execute(query).fetchall(), close=sqlite3.connect('database/data.db').close())
+@app.route('/category.html', methods=['POST'])
+def postcategory():
+    return render_template('category.html', category=request.form['button'], catalogue=sqlite3.connect('database/data.db').cursor().execute("SELECT * FROM catalogue"), close=sqlite3.connect('database/data.db').close())
 @app.route('/postplace.html', methods=['POST'])
 def postdata():
     place_id = int(request.form['place_id'])
