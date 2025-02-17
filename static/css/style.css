@@ -226,6 +226,16 @@ ul > li:first-child {
     font-size: 50px;
 }
 
+.container2 > .about {
+    background: none;
+    position: absolute;
+    font-size: 24px;
+    height: 100px;
+    width: 1000px;
+    top: 175px;
+    left: 250px;
+}
+
 @keyframes add-arrows {
     0% {
         left: -30px;
