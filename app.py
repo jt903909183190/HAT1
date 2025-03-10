@@ -15,22 +15,25 @@ def post():
     # creating an array of users from data.db
     users = sqlite3.connect('database/data.db').cursor().execute("SELECT * FROM users").fetchall()
     sqlite3.connect('database/data.db').close()
-    # testing whether the user is logging in or signing up (Continue is used for login and create account is signup)
+    # testing whether the user is logging in or signing up
+    # (Continue is used for login and create account is signup)
     if request.form['button']=="CONTINUE":
         # getting the values from the login form
         username = request.form['username']
         password = request.form['password']
         # iterating through each row/user in the array previously defined
         for x in users:
-            # testing if the username matches that of the database 
+            # testing if the username matches that of the database
             if x[1].lower()==username.lower():
                 # testing if the password matches
                 if x[2]==password:
-                    # setting a variable in the user's session storage to be used when determining if the user is logged in or not
+                    # setting a variable in the user's session storage to be used when
+                    # determining if the user is logged in or not
                     session['logged_in'] = True
                     # check if the account is the defined admin account
                     if username=="jeremy":
-                        # add a variable in session storage telling the server that the logged in account is an administrator
+                        # add a variable in session storage telling the server that the
+                        # logged in account is an administrator
                         session['admin']=True
                 # send the user to the index page
                 return redirect('/')
@@ -54,20 +57,24 @@ def post():
             #establishing the email 'server' used to send users their verification code
             with smtplib.SMTP_SSL("smtp.gmail.com", 465,
                                   context=ssl.create_default_context()) as server:
-                server.login("randomguy321321321321@gmail.com", "uqyn gtdg kimp tvxj") # logging into the gmail account
+                # logging into the gmail account
+                server.login("randomguy321321321321@gmail.com", "uqyn gtdg kimp tvxj")
                 code=random.randint(1000, 9999) # make a random verification code
-                message = "Subject: Verification Code\n"+ str(code) # define the message used in the email
-                server.sendmail("randomguy321321321321@gmail.com", email, message) # sending the email
+                # define the message used in the email
+                message = "Subject: Verification Code\n"+ str(code)
+                # sending the email
+                server.sendmail("randomguy321321321321@gmail.com", email, message)
                 #defining temporary session variables to use when verifying email
-                session['email']=email 
+                session['email']=email
                 session['username']=username
                 session['password']=password
                 session['code']=code
                 return redirect(url_for('verification')) #send the user to the verifcation page
-        return render_template('signup.html', error="Username is already in use") #if the username is invalid, refresh the page
+        #if the username is invalid, refresh the page
+        return render_template('signup.html', error="Username is already in use")
 
 
-# --- Rendering the respective page when the user goes to a location on the website ---
+# --- Page Routing ---
 @app.route('/login', methods=['GET'])
 def login():
     '''redirect to login.html'''
@@ -104,8 +111,10 @@ def handleverification():
         session.pop('password', None)
         session.pop('email', None)
         session.pop('code', None)
-        return redirect(url_for('login')) #send the user to the login page where they can sign into the account they made
-    return render_template('verification.html', error="Invalid verification code") # if the code is wrong, refresh the page
+        #send the user to the login page where they can sign into the account they made
+        return redirect(url_for('login'))
+    # if the code is wrong, refresh the page
+    return render_template('verification.html', error="Invalid verification code")
 
 
 @app.route('/place', methods=['GET'])
@@ -173,7 +182,8 @@ def home():
     try:
         # displaying index.html with arguments containing the data of all restaurants
         return render_template('index.html',
-                               signed_in=session['logged_in'], # <- the part that will be caught if the user is not logged in
+                               # the part that will be caught if the user is not logged in
+                               signed_in=session['logged_in'],
                                view=request.args.get("view"),
                                catalogue=sqlite3.connect('database/data.db').cursor()
                                 .execute("SELECT * FROM catalogue").fetchall(),

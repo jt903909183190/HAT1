@@ -127,4 +127,9 @@
   Created final story board 
   Evaluated website's colour contrast with WCAG colour contrast checker to ensure accessability
   
-    
+10/03/2025
+  added a dark/light mode feature
+
+11/03/2025
+  moved to new codespace to avoid github resource usage limit
+  added searchbar with full functionality

@@ -6,6 +6,7 @@ body { /* css affecting the entire page */
     overflow: hidden;
     font-family: Courier, serif;
     margin: 0;
+    background-color: white;
 }
 ul { /*styling the navbar*/
     max-width: 99.9vw;
@@ -91,9 +92,9 @@ ul > li a:hover { /*creating a hover effect when hovering over the text in the n
 .form p:last-child input { /* styling the submit button in the form */
     margin-top: 2.5vw;
     text-indent: 0px;
-    color: #777;
-    background-color: #fff;
-    border-color: #fff;
+    color: inherit;
+    background-color: transparent;
+    border-color: transparent;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.25vw;
 }
@@ -154,7 +155,7 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
 .container > div > a { /* styling the text in the boxes */
     position: absolute;
     text-decoration: none;
-    color: #000;
+    color: inherit;
     bottom: 14vh;
     width: 100%;
     text-align: center;
@@ -203,7 +204,7 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
 }
 
 .container2 > .contact { /* styling the "contact" part of place.html which displays relevant information on the restaurant */
-    background-color: #fff;
+    background-color: transparent;
     top: 9vw;
     position: absolute;
     width: 20vw; 
@@ -217,7 +218,7 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
 }
 
 .container2 > .title { /* Styling the title of place.html */
-    background-color: #fff;
+    background-color: transparent;
     height: 5vw;
     font-size: 2.5vw;
 }
@@ -265,7 +266,7 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
 
 .card > a { /* styling the card's "View more" button */
     text-decoration:underline;
-    color: #777;
+    color: inherit;
     width: 100%;
     text-align: center;
     font-size: 1.25vw;
@@ -307,6 +308,17 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
     background: orange;
     border-radius: 50%;
     border: 2px solid #000;
+}
+
+.colormode {
+    bottom: 0.5vw;
+    right: 0.5vw;
+    position: absolute;
+    z-index: 2;
+}
+
+.colormode:hover {
+    cursor: pointer;
 }
 
 /* creating an animation to show the arrows sliding from left to right */
