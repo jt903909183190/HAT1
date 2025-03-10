@@ -1,9 +1,9 @@
 {% include "menu.html" %}
 <style>body {overflow: scroll;}</style>
-<form action="./postplace.html" method = "POST" class="form">
+<!-- form used to submit data to data.db -->
+<form action="./postplace" method = "POST" class="form">
     <p>POST PLACE</p>
-    <p>Id</p>
-    <p><input type = "text" name = "place_id" placeholder=""/></p>
+    <!-- data to be inserted into catalogue -->
     <p>Name</p>
     <p><input type = "text" name = "name" placeholder=""/></p>
     <p>Category</p>
@@ -12,8 +12,6 @@
     <p><input type = "text" name = "coordx" placeholder=""/></p>
     <p>Y-Coordinate</p>
     <p><input type = "text" name = "coordy" placeholder=""/></p>
-    <p>About</p>
-    <p><input type = "text" name = "about" placeholder=""/></p>
     <p>Address</p>
     <p><input type = "text" name = "address" placeholder=""/></p>
     <p>Open Hours</p>
@@ -22,7 +20,20 @@
     <p><input type = "text" name = "website" placeholder=""/></p>
     <p>Phone Number</p>
     <p><input type = "text" name = "phone_number" placeholder=""/></p>
+    <p>Rating</p>
+    <p><input type = "text" name = "rating" placeholder=""/></p>
+    <!-- data to be inserted into reviews -->
+    <p>Review 1</p>
+    <p><input type = "text" name = "review1" placeholder=""/></p>
+    <p>Review 2</p>
+    <p><input type = "text" name = "review2" placeholder=""/></p>
+    <!-- data to be inserted into images -->
+    <p>Image 1</p>
+    <p><input type = "text" name = "image1" placeholder=""/></p>
+    <p>Image 2</p>
+    <p><input type = "text" name = "image2" placeholder=""/></p>
+    <p>Image 3</p>
+    <p><input type = "text" name = "image3" placeholder=""/></p>
 
-
-    <p><input type = "submit" value = "CREATE PLACE" name="button"/></p>
+    <p><input type = "submit" value = "CREATE PLACE" name="button"/></p> <!-- submit button -->
 </form>

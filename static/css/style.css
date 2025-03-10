@@ -1,141 +1,143 @@
-body {
+/*
+Measurements "vw" and "vh" represent "view width" and "view height" respectively and are equivalent to a % of the current resolution
+*/
+
+body { /* css affecting the entire page */
+    overflow: hidden;
     font-family: Courier, serif;
     margin: 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
-.body::-webkit-scrollbar {
-    display: none;
-}
-ul {
+ul { /*styling the navbar*/
+    max-width: 99.9vw;
     justify-content: right;
     display: flex;
     list-style-type: none;
     margin: 0;
     padding: 0;
     border-style: solid;
-    border-width: 2px;
-    border-color: #777;
+    border-width: 0.2vw;
+    border-color: #997;
     border-left: none;
-    border-right: none;
     width: 100%;
-    background-color:linen;
+    background-color:#080011;
+    height: 9vh;
 }
 
-ul > li {
-    right: 10px;
+ul > li { /*styling the elements of the navbar*/
+    right: 1vw;
     position: relative;
     display: block;
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left:1px;
-    font-size: 25px;
-    width: 100px;
+    padding-top: 0.75vw;
+    padding-bottom: 0.75vw;
+    padding-left:2vw;
 }
 
-ul > li a {
-    padding-top: 10px;
-    padding-bottom: 10px;
+ul > li a { /*styling the text of the elements of the navbar*/
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
     position: relative;
     display: block;
     text-align: center;
-    background-color:linen;
-    font-size: 25px;
+    font-size: 1.5vw;
     text-decoration: none;
     color: #997;
 
 }
 
-ul > li a:hover {
+ul > li a:hover { /*creating a hover effect when hovering over the text in the navbar*/
     color: #770000;
     animation-fill-mode: forwards;
     animation-name: wiggle;
     animation-duration: 0.2s;
 }
 
-ul > li:first-child {
-    width: 150px;
-}
 
-.form {
+.form { /*styling all forms*/
     margin: auto;
     position: relative;
-    width: 800px;
+    width: 40vw;
     
 }
-.form p:first-child {
-    margin-top: 175px;
-    font-size: 25px;
+.form p:first-child { /* setting the position of the first element in the form */
+    margin-top: 8vw;
+    font-size: 1vw;
     font-weight:500;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 2.5vw;
 }
-.form p {
-    margin-top: 30px;
+.form p { /* styling text elements in the form */
+    margin-top: 1.5vw;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    width: 26vw;
+    font-size: 0.8vw;
     font-weight: bold;
 }
 
-.form p input {
-    margin-top: -25px;
+.form p input { /* styling the input boxes in the form */
+    margin-top: -1.25vw;
     border-color: #ccc;
     border-radius: 2px;
     border-style: solid;
     border-width: 1px;
-    height: 50px;
-    width: 500px;
-    font-size: 16px;
-    text-indent: 20px;
+    height: 2.5vw;
+    width: 26vw;
+    font-size: 0.8vw;
+    text-indent: 1vw;
 }
 
-.form p:last-child input {
-    margin-top: 50px;
+.form p:last-child input { /* styling the submit button in the form */
+    margin-top: 2.5vw;
     text-indent: 0px;
     color: #777;
     background-color: #fff;
     border-color: #fff;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 25px;
+    font-size: 1.25vw;
 }
 
-.form p:last-child input:hover {
+.form p:last-child input:hover { /* adding a hover effect to the submit button */
     animation-name: wiggle;
     animation-duration: 0.1s;
     color: #770000;
 }
 
 
-.container {
+.container { /* styling the "container" class used in index.html and categories.html */
     display: grid;
     grid-template-columns: auto auto;
-    padding: 10px;
+    padding: 0.5vw;
     justify-content: center;
-    overflow: visible;
   }
-.container > div {
+.container > div { /* styling the boxes in the container */
+    overflow: hidden;
     position: relative;
-    border: 2px solid #ccc;
+    border: 1px solid #8a8a7e;
     border-radius: 5px;
-    padding: 10px;
-    margin: 50px;
-    margin-top: 10px;
-    margin-bottom: 25px;
-    height: 250px;
-    width: 700px;
-    font-size: 30px;
+    margin: 2vw;
+    margin-bottom: 2vw;
+    height: 30vh;
+    width: 35vw;
     transition: box-shadow 0.3s ease;
   }
 
-  .container >div:first-child:hover, .container >div:nth-child(3):hover {
-    box-shadow: -15px 15px 5px rgba(216, 216, 216, 0.5);
-  }
-  .container >div:last-child:hover, .container >div:nth-child(2):hover {
-    box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
-  }
+.container > div > img { /* styling the background image of the boxes */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 30%;
+}
+
+/* styling the shadow effects when hovering over the boxes */
+.container >div:first-child:hover, .container >div:nth-child(3):hover {
+box-shadow: -15px 15px 5px rgba(216, 216, 216, 0.5);
+}
+.container >div:last-child:hover, .container >div:nth-child(2):hover {
+box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
+}
 .container > div:first-child, .container >div:nth-child(2) {
     box-shadow: 5px 5px 5px rgba(216, 216, 216, 0.5);
     margin-top: 0px;
@@ -149,98 +151,165 @@ ul > li:first-child {
     margin-top: 0px;
 }
 
-.container > div > input {
-    margin: 0;
-    position: absolute;
-    border: none;
-    opacity: 0;
-    width: 100%;
-    height: 34px;
-    bottom: 30px;
-    left: 0px;
-}
-
-.container > div > p {
+.container > div > a { /* styling the text in the boxes */
     position: absolute;
     text-decoration: none;
-    color: #777;
-    bottom: 0;
+    color: #000;
+    bottom: 14vh;
     width: 100%;
     text-align: center;
-    font-size: 30px;
+    font-size: 3vh;
     border-color: none;
     background-color: none;
-    z-index: -1;
+    z-index: 0;
 }
-.container > div > input:hover {cursor: pointer;}
-.container > div > input:hover ~ .text{
+
+.container > div > a:hover{ /* hover effect for text in boxes */
     animation-name: shift-arrows;
     animation-duration: 0.4s;
-    color: #770000;
+    color: #990000;
     cursor: pointer;
 }
-.container > div > input:hover ~ .text:after {
+.container > div > a:hover:after { /* defining what happens after the user starts hovering over the text */
     position: relative;
     content: "\ >>";
-    color:#770000;
+    color:#990000;
     animation-name: add-arrows;
     animation-duration: 0.4s;
     left: -8px;
 }
 
-.container2 {
+.container2 { /* styling "container2" used in place.html */
     position: relative;
-    padding: 25px;
-    height: 800px;
-    margin: 30px;
+    padding: 1vw;
+    height: 100vh;
+    margin: 1vh;
     margin-top: 10px;
 
 }
-.container2 > div {
-    background-color: #f1f1f1;
+.container2 > div { /* styling the basic properties of each div in the container*/
     text-align: center;
-    font-size: 30px;
-    height: 250px;
-    margin-left: 25px;
-    margin-right: 25px;
+    height: 12.5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
   }
 
-#map {
+#map { /* styling the mapbox map */
     position: absolute;
-    height: 500px; width: 500px;
-    right: 25px;
-    bottom: 50px;
-}
-.container2 > .contact {
-    background-color: #fff;
-    top: 175px;
-    position: absolute;
-    width: 500px; 
-    height: 150px;
-    right: 25px;
+    height: 20vw; 
+    width: 20vw;
+    right: 1.25vw;
+    top: 18vw;
 }
 
-.container2 > .contact > li {
+.container2 > .contact { /* styling the "contact" part of place.html which displays relevant information on the restaurant */
+    background-color: #fff;
+    top: 9vw;
+    position: absolute;
+    width: 20vw; 
+    height: 7.5vw;
+    right: 1vw;
+}
+
+.container2 > .contact > li { /* styling the list contents of "contact" */
     text-decoration: none;
     list-style: none;
 }
 
-.container2 > .title {
+.container2 > .title { /* Styling the title of place.html */
     background-color: #fff;
-    height: 100px;
-    font-size: 50px;
+    height: 5vw;
+    font-size: 2.5vw;
 }
 
-.container2 > .about {
-    background: none;
-    position: absolute;
-    font-size: 24px;
-    height: 100px;
-    width: 1000px;
-    top: 175px;
-    left: 250px;
+.cataloguecontainer{ /* styling the container used in the catalogue display of index.html */
+    display: grid; /* display as a grid to separate the filter to the catalogue */
+    grid-template-columns: 75vw 25vw;
+}
+.catalogue { /* styling the actual catalogue */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 75vw;
+    height: 90vh;
+    overflow-x: hidden;
+    overflow-y: scroll; /* adding the scrollbar to the catalogue */
+    font-size: 0.9vw
 }
 
+.card { /* styling the individual card */
+    border: 2px solid #777;
+    border-radius: 5px;
+    width: 20vw;
+    height: 25vw;
+    margin: 2vw;
+    text-align: center;
+}
+
+.imgcontainer { /* styling the container that the images of each card go in */
+    width: 20vw;
+    height: 13vw;
+    overflow: hidden;
+    display: flex;
+}
+
+
+.card > .imgcontainer > img { /* styling the card's image */
+    width: 20.1vw;
+    height: 13.1vw;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+.card > a { /* styling the card's "View more" button */
+    text-decoration:underline;
+    color: #777;
+    width: 100%;
+    text-align: center;
+    font-size: 1.25vw;
+}
+
+.card > a:hover{/* creating the hover effect on the view more button */
+    cursor: pointer;
+    animation-name: shift-arrows;
+    animation-duration: 0.4s;
+    color: #990000;
+    cursor: pointer;
+}
+.card > a:hover:after { /* defining what happens after the user begins hovering on the button */
+    position: relative;
+    content: "\ >>";
+    color:#990000;
+    animation-name: add-arrows;
+    animation-duration: 0.4s;
+    left: -8px;
+}
+
+.ratingslider { /* styling the slider found in the filter section of index.html */
+    margin-bottom: 1vw;
+    appearance: none;
+    -webkit-appearance: none;
+    height: 0.5vw;
+    width: 13vw;
+    outline: none;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+.ratingslider::-webkit-slider-thumb { /* styling the part of the slider that the user interacts with */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: orange;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+/* creating an animation to show the arrows sliding from left to right */
 @keyframes add-arrows {
     0% {
         left: -30px;
@@ -251,18 +320,7 @@ ul > li:first-child {
         opacity: 1;
     }
 }
-@keyframes nav-hover-fade {
-    0% {
-        background-color:linen;
-
-    }
-    
-    100% {
-        background-color: #dad0c9;
-    }
-    
-}
-
+/* creating an animation to "wiggle" an element */
 @keyframes wiggle {
     15% {
         transform: rotate(5deg);
