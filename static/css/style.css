@@ -173,7 +173,7 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
 }
 .container > div > a:hover:after { /* defining what happens after the user starts hovering over the text */
     position: relative;
-    content: "\ >>";
+    content: " >>";
     color:#990000;
     animation-name: add-arrows;
     animation-duration: 0.4s;
@@ -281,7 +281,7 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
 }
 .card > a:hover:after { /* defining what happens after the user begins hovering on the button */
     position: relative;
-    content: "\ >>";
+    content: " >>";
     color:#990000;
     animation-name: add-arrows;
     animation-duration: 0.4s;
@@ -310,15 +310,35 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
     border: 2px solid #000;
 }
 
-.colormode {
-    bottom: 0.5vw;
-    right: 0.5vw;
+.colormode { /* dark/lightmode button */
+    bottom: 1.5vw;
+    right: 1.5vw;
     position: absolute;
     z-index: 2;
 }
 
-.colormode:hover {
+.colormode:hover { /* hover effect for the dark/lightmode button */
     cursor: pointer;
+}
+.sortby { /* container for the "sort by" part of the filter */
+    margin-top: 3vw;
+    position: relative;
+}
+.dropdowncontainer { /* the box that displays the current sort mode */
+    background-color: transparent;
+    color: inherit;
+    height: 100%;
+    border-radius: 3px;
+    position: absolute;
+    font: inherit;
+    font-size: 0.8vw;
+    text-align: left;
+    top: 0;
+    margin-left: -2vw;
+}
+.dropdowncontainer > option { /* styling the options of the drop-down menu */
+    background-color: #fff;
+    color: #000;
 }
 
 /* creating an animation to show the arrows sliding from left to right */
@@ -332,6 +352,7 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
         opacity: 1;
     }
 }
+
 /* creating an animation to "wiggle" an element */
 @keyframes wiggle {
     15% {

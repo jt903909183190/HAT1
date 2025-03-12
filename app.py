@@ -40,38 +40,36 @@ def post():
             # if the username or password is wrong, refresh the page
         return render_template("login.html", error="Invalid Username or Password")
     # signup handling
-    if request.form['button']=="CREATE ACCOUNT":
-        # get the values from signup form
-        username = request.form['username']
-        password = request.form['password']
-        email=request.form['email']
-        # if the inputted username has no length (is blank), refresh the page
-        if len(str(username))==0:
-            return render_template("signup.html", error="Username Field is Blank")
-        invalid = False # local variable used to check if the username already exists
-        # iterate through the users array to test if the username already exists
-        for i in users:
-            if i[1].lower()==username.lower():
-                invalid=True
-        if not invalid:
-            #establishing the email 'server' used to send users their verification code
-            with smtplib.SMTP_SSL("smtp.gmail.com", 465,
-                                  context=ssl.create_default_context()) as server:
-                # logging into the gmail account
-                server.login("randomguy321321321321@gmail.com", "uqyn gtdg kimp tvxj")
-                code=random.randint(1000, 9999) # make a random verification code
-                # define the message used in the email
-                message = "Subject: Verification Code\n"+ str(code)
-                # sending the email
-                server.sendmail("randomguy321321321321@gmail.com", email, message)
-                #defining temporary session variables to use when verifying email
-                session['email']=email
-                session['username']=username
-                session['password']=password
-                session['code']=code
-                return redirect(url_for('verification')) #send the user to the verifcation page
-        #if the username is invalid, refresh the page
-        return render_template('signup.html', error="Username is already in use")
+    username = request.form['username']
+    password = request.form['password']
+    email=request.form['email']
+    # if the inputted username has no length (is blank), refresh the page
+    if len(str(username))==0:
+        return render_template("signup.html", error="Username Field is Blank")
+    invalid = False # local variable used to check if the username already exists
+    # iterate through the users array to test if the username already exists
+    for i in users:
+        if i[1].lower()==username.lower():
+            invalid=True
+    if not invalid:
+        #establishing the email 'server' used to send users their verification code
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465,
+                                context=ssl.create_default_context()) as server:
+            # logging into the gmail account
+            server.login("randomguy321321321321@gmail.com", "uqyn gtdg kimp tvxj")
+            code=random.randint(1000, 9999) # make a random verification code
+            # define the message used in the email
+            message = "Subject: Verification Code\n"+ str(code)
+            # sending the email
+            server.sendmail("randomguy321321321321@gmail.com", email, message)
+            #defining temporary session variables to use when verifying email
+            session['email']=email
+            session['username']=username
+            session['password']=password
+            session['code']=code
+            return redirect(url_for('verification')) #send the user to the verifcation page
+    #if the username is invalid, refresh the page
+    return render_template('signup.html', error="Username is already in use")
 
 
 # --- Page Routing ---
@@ -186,7 +184,7 @@ def home():
                                signed_in=session['logged_in'],
                                view=request.args.get("view"),
                                catalogue=sqlite3.connect('database/data.db').cursor()
-                                .execute("SELECT * FROM catalogue").fetchall(),
+                                .execute("SELECT * FROM catalogue ORDER BY name").fetchall(),
                                 images=sqlite3.connect('database/data.db').cursor()
                                 .execute("SELECT * FROM images").fetchall(),
                                 close=sqlite3.connect('database/data.db').close())

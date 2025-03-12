@@ -3,7 +3,7 @@
     <!-- catalogue view -->
     <title>Catalogue</title>
     <div class="cataloguecontainer">
-    <div class="catalogue">
+    <div class="catalogue" id="catalogue">
         <!-- iterating through all restaurants in the catalogue and displaying them-->
         {% for i in catalogue %}
             <div class="cardcontainer"category={{i[2]}} rating={{i[9]}} cardname="{{i[1]}}"> <!-- invisible div used in the filtering system with javascript -->
@@ -44,8 +44,19 @@
     <!-- the filter part of the catalogue view -->
     <div style="font-size: 2vw; border: 2px solid #777; border-top: none; border-bottom:none; color: inherit; text-align: center; padding-top: 2vw;">
         FILTER
-        <input type="text" id="search" oninput="search()" style="width: 20vw; margin-top: 3vw; height: 2vw; border-radius: 5px; border: 1px solid black; font: inherit; font-size: 1.5vw;">
-        <div style="margin-top: 3vw; text-align: left; margin-left: 4vw;"><p style="font-size: 1.5vw;  margin-bottom: -1.5vw;">CUISINES</p><br>
+         <!-- Search bar -->
+        <input type="text" id="search" oninput="search()" style="width: 17vw; margin-top: 3vw; height: 2vw; border-radius: 5px; border: 1px solid black; font: inherit; font-size: 1.5vw;" placeholder="SEARCH">
+         <!-- Sort input -->
+        <div class="sortby">
+            <p style="font-size: 1.25vw; text-align: left; width: 7vw; margin-left: 4vw;">SORT BY: </p>
+            <select id="sortmode" class="dropdowncontainer" onchange=sort()>
+                <option value="alphadesc">Alphabetic: A-Z</p>
+                <option value="alphaasc">Alphabetic: Z-A</p>
+                <option value="ratingdesc">Rating: High-Low</p>
+                <option value="ratingasc">Rating: Low-High</p>
+            </select>
+        </div>
+        <div style="text-align: left; margin-left: 4vw;"><p style="font-size: 1.5vw;  margin-bottom: -1.5vw;">CUISINES</p><br>
             <!-- checkboxes that are linked to the javascript found in this file using an onclick function -->
             <input type="checkbox" id="Korean" onclick="updatecatalogue()" checked><label style="font-size: 1vw;"> Korean</label><br>
             <input type="checkbox" id="Italian" onclick="updatecatalogue()" checked><label style="font-size: 1vw;"> Italian</label><br>
@@ -72,9 +83,65 @@
     </div>
 {%endif%}
 
-
 <script>
-    // updating the contents of the catalogue when the minrating slider is changed
+    // rearranging the cards when the user selects an option from the "sort by" input
+    function sort() {
+        var newarray = []
+        //getting the value of the input and rearranging respectively into an array
+        if (document.getElementById("sortmode").value=="alphadesc") {
+            newarray = [...document.getElementsByClassName("cardcontainer")].sort( (card1, card2) => {
+                if (card1.getAttribute("cardname").toLowerCase()<card2.getAttribute("cardname").toLowerCase()) {
+                    return -1;
+                }
+                if (card1.getAttribute("cardname").toLowerCase()>card2.getAttribute("cardname").toLowerCase()) {
+                    return 1;
+                }
+                return 0;
+            })
+        }
+        if (document.getElementById("sortmode").value=="alphaasc") {
+            newarray = [...document.getElementsByClassName("cardcontainer")].sort( (card1, card2) => {
+                if (card1.getAttribute("cardname").toLowerCase()>card2.getAttribute("cardname").toLowerCase()) {
+                    return -1;
+                }
+                if (card1.getAttribute("cardname").toLowerCase()<card2.getAttribute("cardname").toLowerCase()) {
+                    return 1;
+                }
+                return 0;
+            })
+        }
+        if (document.getElementById("sortmode").value=="ratingasc") {
+            newarray = [...document.getElementsByClassName("cardcontainer")].sort( (card1, card2) => {
+                if (card1.getAttribute("rating")<card2.getAttribute("rating")) {
+                    return -1;
+                }
+                if (card1.getAttribute("rating")>card2.getAttribute("rating")) {
+                    return 1;
+                }
+                return 0;
+            })
+        }
+        if (document.getElementById("sortmode").value=="ratingdesc") {
+            newarray = [...document.getElementsByClassName("cardcontainer")].sort( (card1, card2) => {
+                if (card1.getAttribute("rating")>card2.getAttribute("rating")) {
+                    return -1;
+                }
+                if (card1.getAttribute("rating")<card2.getAttribute("rating")) {
+                    return 1;
+                }
+                return 0;
+            })
+        }
+        // deleting the elements from the old catalogue
+        [...document.getElementsByClassName("cardcontainer")].forEach(e=> {
+            e.remove();
+        })
+        // adding the new elements to the catalogue
+        newarray.forEach(e=> {
+            document.getElementById("catalogue").appendChild(e);
+        })
+    }
+    // updating the contents of the catalogue when the user types in the search bar
     function search() {
         [...document.querySelectorAll("[cardname]")].forEach(card=>{
             if (card.getAttribute("cardname").toLowerCase().includes(document.getElementById("search").value.toLowerCase()) && card.getAttribute("rating")>=document.getElementById("minrating").value/10 && card.getAttribute("rating")<=document.getElementById("maxrating").value/10 && document.getElementById(card.getAttribute("category")).checked) {
@@ -85,6 +152,7 @@
             }
         })
     }
+    // updating the contents of the catalogue when the minrating slider is changed
     document.getElementById("minrating").oninput = (f=>{
         document.getElementById("minratingtext").innerHTML=" MIN: " + (document.getElementById("minrating").value/10); //updating the text next to the slider
         // iterating through every element that contains an attribute "rating"

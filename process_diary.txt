@@ -128,8 +128,13 @@
   Evaluated website's colour contrast with WCAG colour contrast checker to ensure accessability
   
 10/03/2025
-  added a dark/light mode feature
+  added a dark/light mode feature using javascript to enhance the website's accessability
 
 11/03/2025
   moved to new codespace to avoid github resource usage limit
-  added searchbar with full functionality
+  added searchbar with full functionality to the catalogue page with javascript
+  added sort-by system to the catalogue page with javascript
+  styled sort-by dropdown, button and text
+  styled searchbar
+  updated final story board to include these features
+  removed an "if" statement from the login/signup handling function for pylint (9.89/10->10.0./10)
