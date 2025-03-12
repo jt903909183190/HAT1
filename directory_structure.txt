@@ -89,10 +89,11 @@ process_diary.txt
 directory_structure.txt
 sql_commands.txt
 gantt_chart.png
-storyboard_final.pdf
+storyboard_FINAL.pdf
 storyboard_iteration_1.png
 storyboard_iteration_2.pdf
 testing_screenshots >
     4-3-2025.pdf
     8-3-2025.pdf
     colour_contrast_checker.png
+    pylint_10.00_12-03-2025.png

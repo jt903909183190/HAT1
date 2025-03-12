@@ -6,7 +6,7 @@
     {% for place in catalogue %}
         {% if place[2]==category %}
             <!-- displaying each restaurant that matches the category -->
-            <div><img src='static/images/{{images[place[0]][1]}}2.png'><a class="text" href="{{url_for('showplace', place_id=place[0])}}">{{place[1]}}</a></div>
+            <div><img src='static/images/{{images[place[0]][1]}}2.png' alt="Restaurant background image"><a class="text" href="{{url_for('showplace', place_id=place[0])}}">{{place[1]}}</a></div>
         {% endif %}
     {% endfor %}
 </div>

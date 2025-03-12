@@ -8,7 +8,7 @@
         {% for i in catalogue %}
             <div class="cardcontainer"category={{i[2]}} rating={{i[9]}} cardname="{{i[1]}}"> <!-- invisible div used in the filtering system with javascript -->
             <div class="card">
-            <div class="imgcontainer"><img src="static/images/{{images[i[0]][1]}}.png"></div> <!-- adding the respective image to the card -->
+            <div class="imgcontainer"><img src="static/images/{{images[i[0]][1]}}.png" alt="Card Image"></div> <!-- adding the respective image to the card -->
                 <p style="text-align: center; font-weight: 600; font-size: 1.25vw; margin: 1vw;">{{i[1]}}</p> <!-- adding the restaurant name to the card -->
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- google's icon libarary -->
                 <p style="text-align: center;"><i class="material-icons" style="font-size: 1vw; color: orange; text-align: center;">
@@ -58,10 +58,10 @@
         </div>
         <div style="text-align: left; margin-left: 4vw;"><p style="font-size: 1.5vw;  margin-bottom: -1.5vw;">CUISINES</p><br>
             <!-- checkboxes that are linked to the javascript found in this file using an onclick function -->
-            <input type="checkbox" id="Korean" onclick="updatecatalogue()" checked><label style="font-size: 1vw;"> Korean</label><br>
-            <input type="checkbox" id="Italian" onclick="updatecatalogue()" checked><label style="font-size: 1vw;"> Italian</label><br>
-            <input type="checkbox" id="Chinese" onclick="updatecatalogue()" checked><label style="font-size: 1vw;"> Chinese</label><br>
-            <input type="checkbox" id="Thai" onclick="updatecatalogue()" checked><label style="font-size: 1vw;"> Thai</label><br>    
+            <input type="checkbox" id="Korean" onclick="updatecatalogue()" checked><label style="font-size: 1vw; vertical-align: middle;"> Korean</label><br>
+            <input type="checkbox" id="Italian" onclick="updatecatalogue()" checked><label style="font-size: 1vw; vertical-align: middle;"> Italian</label><br>
+            <input type="checkbox" id="Chinese" onclick="updatecatalogue()" checked><label style="font-size: 1vw; vertical-align: middle;"> Chinese</label><br>
+            <input type="checkbox" id="Thai" onclick="updatecatalogue()" checked><label style="font-size: 1vw; vertical-align: middle;"> Thai</label><br>    
         </div>
         <div style="margin-top: 3vw; text-align: left; margin-left: 4vw;"><p style="font-size: 1.5vw;  margin-bottom: -1.5vw;">RATING</p><br>
             <!-- inspired by https://medium.com/@predragdavidovic10/native-dual-range-slider-html-css-javascript-91e778134816 -->
@@ -76,10 +76,10 @@
     <p style="width: 100%; text-align: center; font-size: 2.5vw;">CUISINES</p>
     <div class="container">
         <!-- display the different cuisines with their respective images, and link the buttons to category.html -->
-        <div><img src='static/images/Korean.png'><a href="{{url_for('showcategory', category='Korean')}}" class="text">KOREAN</a></div>
-        <div><img src='static/images/Italian.png'><a href="{{url_for('showcategory', category='Italian')}}" class="text">ITALIAN</a></div>
-        <div><img src='static/images/Chinese.png'><a href="{{url_for('showcategory', category='Chinese')}}" class="text">CHINESE</a></div>
-        <div><img src='static/images/Thai.png'><a href="{{url_for('showcategory', category='Thai')}}" class="text">THAI</a></div>
+        <div><img src='static/images/Korean.png' alt="Korean Background Image"><a href="{{url_for('showcategory', category='Korean')}}" class="text">KOREAN</a></div>
+        <div><img src='static/images/Italian.png' alt="Italian Background Image"><a href="{{url_for('showcategory', category='Italian')}}" class="text">ITALIAN</a></div>
+        <div><img src='static/images/Chinese.png' alt="Chinese Background Image"><a href="{{url_for('showcategory', category='Chinese')}}" class="text">CHINESE</a></div>
+        <div><img src='static/images/Thai.png' alt="Thai Background Image"><a href="{{url_for('showcategory', category='Thai')}}" class="text">THAI</a></div>
     </div>
 {%endif%}
 
@@ -87,7 +87,7 @@
     // rearranging the cards when the user selects an option from the "sort by" input
     function sort() {
         var newarray = []
-        //getting the value of the input and rearranging respectively into an array
+        //getting the selected sort-by type and rearranging respectively into an array
         if (document.getElementById("sortmode").value=="alphadesc") {
             newarray = [...document.getElementsByClassName("cardcontainer")].sort( (card1, card2) => {
                 if (card1.getAttribute("cardname").toLowerCase()<card2.getAttribute("cardname").toLowerCase()) {

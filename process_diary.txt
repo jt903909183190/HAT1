@@ -60,7 +60,7 @@
     transferred previous content of index.html to be rendered when the url argument "view" is given as "category" (given when the user selecets "Cuisines")
     create a page that is rendered when the url argument "view" is given as "catalogue" (given when the user selects "View All")
     Temporarily displayed all rows of the catalogue when view=catalogue
-   analysed app.py with pylint 
+   analysed app.py with pylint (Screenshots are in testing_screenshots)
     6.1/10 -> 7.22/10 (removed unused imports and rearranged the order of standard imports)
     7.22/10 -> 9.23/10 (renamed variables, added function doscstrings)
     9.23 -> 9.78/10 (added module doscstrings and removed "pointless" statements)
@@ -102,7 +102,7 @@
   Fixed users being able to create accounts with null usernames
   fixed filtering system in catalogue
   PYLINT
-    9.88/10 -> 8.68/10 (before changes)
+    9.88/10 -> 8.68/10 (before changes) (Screenshots are in testing_screenshots)
     removed traling whitespaces, 
     removed unneccesary elif statement and replaced it with "if", 
     removed unused variables, 
@@ -125,16 +125,18 @@
   
 9/03/2025
   Created final story board 
-  Evaluated website's colour contrast with WCAG colour contrast checker to ensure accessability
+  Evaluated website's colour contrast with WCAG colour contrast checker to ensure accessability - https://www.skynettechnologies.com/color-contrast-checker
   
 10/03/2025
   added a dark/light mode feature using javascript to enhance the website's accessability
 
 11/03/2025
   moved to new codespace to avoid github resource usage limit
-  added searchbar with full functionality to the catalogue page with javascript
-  added sort-by system to the catalogue page with javascript
-  styled sort-by dropdown, button and text
-  styled searchbar
+  added searchbar with full functionality to the catalogue page with javascript 
+  added sort-by system to the catalogue page with javascript - https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_object2
+  styled sort-by dropdown, button and text - https://www.w3schools.com/howto/howto_custom_select.asp
+  styled searchbar 
   updated final story board to include these features
+
+12/03/2025
   removed an "if" statement from the login/signup handling function for pylint (9.89/10->10.0./10)
