@@ -341,6 +341,27 @@ box-shadow: 15px 15px 5px rgba(216, 216, 216, 0.5);
     color: #000;
 }
 
+.imgcontainer2 { /* styling the images seen on the restaurant page */
+    width: 25vw;
+    height: 20vw;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 2px solid #777;
+}
+.imgcontainer2 > img { 
+    width: 25vw; 
+    height: 20vw;
+}
+
+.reviewcontainer {  /* styling the reviews seen on the restaurant page */
+    display: flex;
+    height: 20vw; 
+    width: 40vw;
+    background-color: transparent; 
+    align-items: center; 
+    font-size: 1vw;
+}
+
 /* creating an animation to show the arrows sliding from left to right */
 @keyframes add-arrows {
     0% {
